@@ -4,7 +4,7 @@ import CreationForm from '../view/creating-form-view.js';
 import EditingForm from '../view/editing-form-view.js';
 import TripPoint from '../view/trip-point.js';
 import TripList from '../view/trip-list-view.js';
-// import { getDefaultPoint } from '../const.js';
+//import { getDefaultPoint } from '../const.js';
 
 export default class TripListPresenter {
 
@@ -24,6 +24,7 @@ export default class TripListPresenter {
     render(this.tripListComponent, this.mainContentContainer);
 
     render(new CreationForm({point: points[1], destinations, offers}), this.tripListComponent.getElement());
+    //render(new CreationForm({getDefaultPoint(), destinations, offers}), this.tripListComponent.getElement());
     render(new EditingForm({point: points[0], destinations, offers}), this.tripListComponent.getElement());
 
     for(const point of points) {
