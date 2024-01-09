@@ -11,7 +11,7 @@ import {
 function createTripPoint (point, destinations, offers) {
   const pointDestination = destinations.find((destination) => point.destination === destination.id);
   const typeOffers = offers.find((offer) => offer.type === point.type).offers;
-  const pointOffers = typeOffers.filter((off, index) => off.id === String(point.offers[index]));
+  const pointOffers = typeOffers.filter((off) => point.offers.includes(off.id));
   const {basePrice, isFavorite, dateFrom, dateTo, type} = point;
 
   return `
@@ -58,7 +58,7 @@ function createTripPoint (point, destinations, offers) {
 }
 
 export default class TripPoint {
-  constructor(point, destinations, offers) {
+  constructor({point, destinations, offers}) {
     this.point = point;
     this.destinations = destinations;
     this.offers = offers;

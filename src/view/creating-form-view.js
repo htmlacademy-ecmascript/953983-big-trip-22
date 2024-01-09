@@ -40,7 +40,7 @@ function createCreationForm (point, destinations, offers) {
 
         <div class="event__field-group  event__field-group--destination">
           <label class="event__label  event__type-output" for="event-destination-${pointId}">
-          Flight
+          ${capitalizeFirstLetter(type)}
           </label>
           <input class="event__input  event__input--destination" id="event-destination-${pointId}" type="text" name="event-destination" value="${name || ''}" list="destination-list-${pointId}">
           <datalist id="destination-list-${pointId}">
@@ -102,7 +102,7 @@ function createCreationForm (point, destinations, offers) {
             ${pictures.length ? (
       `<div class="event__photos-container">
               <div class="event__photos-tape">
-              ${pictures.map((pic) => `<img class="event__photo" src="$pic.src" alt="${pic.description}">`)}
+              ${pictures.map((pic) => `<img class="event__photo" src="${pic.src}" alt="${pic.description}">`)}
               </div>
           </div>`
     ) : ''}
@@ -116,8 +116,14 @@ function createCreationForm (point, destinations, offers) {
 }
 
 export default class CreationForm {
+  constructor({point, destinations, offers}) {
+    this.point = point;
+    this.offers = offers;
+    this.destinations = destinations;
+  }
+
   getTemplate() {
-    return createCreationForm;
+    return createCreationForm(this.point, this.destinations, this.offers);
   }
 
   getElement() {
