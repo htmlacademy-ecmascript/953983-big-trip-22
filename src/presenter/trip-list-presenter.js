@@ -1,5 +1,4 @@
 import { render } from '../render.js';
-//import { getRandomArrayElement } from '../utils.js';
 import Sort from '../view/sort-view.js';
 import CreationForm from '../view/creating-form-view.js';
 import EditingForm from '../view/editing-form-view.js';
@@ -14,7 +13,7 @@ export default class TripListPresenter {
     this.pointModel = pointModel;
   }
 
-  tripListComponent = new TripList(); // trip list
+  tripListComponent = new TripList();
 
   init() {
     const points = this.pointModel.getPoints();

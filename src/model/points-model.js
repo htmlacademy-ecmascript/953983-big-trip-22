@@ -23,7 +23,7 @@ export default class PointModel {
     return this.offers;
   }
 
-  getOfferByType() {
-    return this.offers;
+  getDestinations() {
+    return this.destination;
   }
 }

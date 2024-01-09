@@ -6,7 +6,7 @@ const mockPoints = [
     dateTo: '2024-07-10T11:45Z',
     destination: 1,
     isFavorite: false,
-    offers: [1,2],
+    offers: [1,2,3,4],
     type: 'bus',
   },
   {
@@ -16,7 +16,7 @@ const mockPoints = [
     dateTo: '2024-08-10T11:45Z',
     destination: 2,
     isFavorite: true,
-    offers: [1,2],
+    offers: [6,7,8,9],
     type: 'ship',
   },
   {
@@ -26,7 +26,7 @@ const mockPoints = [
     dateTo: '2024-09-10T11:45Z',
     destination: 3,
     isFavorite: false,
-    offers: [1,2],
+    offers: [11,12,13,14],
     type: 'flight',
   }
 ];
