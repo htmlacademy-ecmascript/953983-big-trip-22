@@ -9,10 +9,9 @@ import {
 } from '../utils.js';
 
 function createTripPoint (point, destinations, offers) {
-
   const pointDestination = destinations.find((destination) => point.destination === destination.id);
   const typeOffers = offers.find((offer) => offer.type === point.type).offers;
-  const pointOffers = typeOffers.filter((off) => point.offers.includes(off.id));
+  const pointOffers = typeOffers.filter((off, index) => off.id === String(point.offers[index]));
   const {basePrice, isFavorite, dateFrom, dateTo, type} = point;
 
   return `

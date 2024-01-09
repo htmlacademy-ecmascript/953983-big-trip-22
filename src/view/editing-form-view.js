@@ -6,7 +6,6 @@ import {
 } from '../utils.js';
 
 function createEditingForm (point, destinations, offers) {
-
   const pointDestination = destinations.find((destination) => point.destination === destination.id);
   const typeOffers = offers.find((offer) => offer.type === point.type).offers;
   const pointOffers = typeOffers.filter((off) => point.offers.includes(off.id));
@@ -110,8 +109,14 @@ function createEditingForm (point, destinations, offers) {
 }
 
 export default class EditingForm {
+  constructor({point, destinations, offers}) {
+    this.point = point;
+    this.destinations = destinations;
+    this.offers = offers;
+  }
+
   getTemplate() {
-    return createEditingForm;
+    return createEditingForm(this.point, this.destinations, this.offers);
   }
 
   getElement() {
