@@ -5,10 +5,10 @@ const getDefaultPoint = () => ({
   basePrice: 0,
   dateFrom: new Date().toISOString(),
   dateTo: new Date().toISOString(),
-  destination: 0,
+  destination: 1,
   isFavorite: false,
   offers: [],
-  type: 'taxi',
+  type: 'bus',
 });
 
 export { POINT_TYPES, POINT_COUNT, getDefaultPoint };

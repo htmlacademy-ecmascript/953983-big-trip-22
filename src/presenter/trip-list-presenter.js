@@ -24,7 +24,7 @@ export default class TripListPresenter {
     render(this.tripListComponent, this.mainContentContainer);
 
     render(new CreationForm({point: points[1], destinations, offers}), this.tripListComponent.getElement());
-    //render(new CreationForm({getDefaultPoint(), destinations, offers}), this.tripListComponent.getElement());
+    //render(new CreationForm({ ...getDefaultPoint() }, destinations, offers), this.tripListComponent.getElement());
     render(new EditingForm({point: points[0], destinations, offers}), this.tripListComponent.getElement());
 
     for(const point of points) {
