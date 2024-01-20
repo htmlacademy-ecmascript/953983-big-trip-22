@@ -1,4 +1,4 @@
-import { createElement } from '../render.js';
+import AbstractView from '../framework/view/abstract-view.js';
 import { POINT_TYPES } from '../const.js';
 import {
   humanizeEventEditDate,
@@ -115,14 +115,14 @@ function createCreationForm (point, destinations, offers) {
   `;
 }
 
-export default class CreationForm {
+export default class CreationForm extends AbstractView{
   constructor({point, destinations, offers}) {
     this.point = point;
     this.offers = offers;
     this.destinations = destinations;
   }
 
-  getTemplate() {
+  get template() {
     return createCreationForm(this.point, this.destinations, this.offers);
   }
 

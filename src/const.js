@@ -1,5 +1,5 @@
 const POINT_TYPES = ['taxi', 'bus', 'train', 'ship', 'drive', 'flight', 'check-in', 'sightseeing', 'restaurant'];
-const POINT_COUNT = 4;
+const POINT_COUNT = 7;
 
 const getDefaultPoint = () => ({
   basePrice: 0,

@@ -1,4 +1,5 @@
 import { createElement } from '../render';
+import AbstractView from '../framework/view/abstract-view.js';
 
 function createTripEvents () {
   return `
@@ -6,9 +7,9 @@ function createTripEvents () {
   `;
 }
 
-export default class TripList {
+export default class TripList extends AbstractView{
 
-  getTemplate() {
+  get template() {
     return createTripEvents();
   }
 

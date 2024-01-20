@@ -1,3 +1,4 @@
+import AbstractView from '../framework/view/abstract-view.js';
 import { POINT_TYPES } from '../const.js';
 import { createElement } from '../render.js';
 import {
@@ -108,14 +109,14 @@ function createEditingForm (point, destinations, offers) {
   `;
 }
 
-export default class EditingForm {
+export default class EditingForm extends AbstractView {
   constructor({point, destinations, offers}) {
     this.point = point;
     this.destinations = destinations;
     this.offers = offers;
   }
 
-  getTemplate() {
+  get template() {
     return createEditingForm(this.point, this.destinations, this.offers);
   }
 
