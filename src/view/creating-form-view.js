@@ -5,13 +5,15 @@ import {
   capitalizeFirstLetter,
 } from '../utils.js';
 
-function createCreationForm (point, destinations, offers) {
+function createCreationForm (point, destinations, offers, onEditingFormClick) {
   const pointDestination = destinations.find((destination) => point.destination === destination.id);
   const typeOffers = offers.find((offer) => offer.type === point.type).offers;
   const pointOffers = typeOffers.filter((off) => point.offers.includes(off.id));
   const {dateFrom, dateTo, basePrice, type} = point;
   const {name, description, pictures} = pointDestination || {};
   const pointId = point.id || 0;
+
+  onEditingFormClick();
 
   return `
   <li class="trip-events__item">
@@ -116,24 +118,20 @@ function createCreationForm (point, destinations, offers) {
 }
 
 export default class CreationForm extends AbstractView{
-  constructor({point, destinations, offers}) {
-    this.point = point;
-    this.offers = offers;
-    this.destinations = destinations;
+
+  #point = null;
+  #offers = null;
+  #destinations = null;
+  #onEditingFormClick = null;
+  constructor({point, destinations, offers, onEditingFormClick}) {
+    super();
+    this.#point = point;
+    this.#offers = offers;
+    this.#destinations = destinations;
+    this.#onEditingFormClick = onEditingFormClick;
   }
 
   get template() {
-    return createCreationForm(this.point, this.destinations, this.offers);
-  }
-
-  getElement() {
-    if(!this.element) {
-      this.element = createElement(this.getTemplate());
-    }
-    return this.element;
-  }
-
-  removeElement() {
-    this.element = null;
+    return createCreationForm(this.#point, this.#destinations, this.#offers, this.#onEditingFormClick);
   }
 }
