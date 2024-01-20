@@ -1,3 +1,4 @@
+import AbstractView from '../framework/view/abstract-view.js';
 import { createElement } from '../render.js';
 import {
   humanizeEventCustomDate,
@@ -57,14 +58,14 @@ function createTripPoint (point, destinations, offers) {
   `;
 }
 
-export default class TripPoint {
+export default class TripPoint extends AbstractView{
   constructor({point, destinations, offers}) {
     this.point = point;
     this.destinations = destinations;
     this.offers = offers;
   }
 
-  getTemplate() {
+  get template() {
     return createTripPoint(this.point, this.destinations, this.offers);
   }
 
